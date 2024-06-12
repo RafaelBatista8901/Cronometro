@@ -1,55 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1C3449"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/cronometroTimer"
-        android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:accessibilityHeading="false"
-        android:gravity="center"
-        android:text="00:00:00"
-        android:textSize="60sp"
-        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:orientation="horizontal">
+        android:layout_height="334dp"
+        android:background="#8FC6F6"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/Start_button"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#33AF38"
-            android:text="Start" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            app:srcCompat="@drawable/captura_de_ecr__2024_06_11_195241_removebg_preview" />
 
-        <Button
-            android:id="@+id/Point_button"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#2C42BC"
-            android:text="Point" />
+        <TextView
+            android:id="@+id/cronometroTimer"
+            android:layout_width="match_parent"
+            android:layout_height="113dp"
+            android:accessibilityHeading="false"
+            android:gravity="center"
+            android:text="00:00:00"
+            android:textSize="60sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/Restart_button"
-            android:layout_width="110dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:backgroundTint="#B5A622"
-            android:text="Restart" />
+            android:clipToPadding="false"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Start_button"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#33AF38"
+                android:text="Start" />
+
+            <Button
+                android:id="@+id/Point_button"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C42BC"
+                android:text="Point" />
+
+            <Button
+                android:id="@+id/Restart_button"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="#B5A622"
+                android:text="Restart" />
+        </LinearLayout>
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Points"
+        android:textColor="#DCDCDC"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/ListaPoints"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textColor="#DCDCDC"
+        android:textSize="20sp" />
 
 </LinearLayout>

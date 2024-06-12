@@ -14,6 +14,9 @@ import androidx.core.view.WindowInsetsCompat
 import pt.ipg.cronometro.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 import android.graphics.Color
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,12 +34,21 @@ class MainActivity : AppCompatActivity() {
 
         serviceIntent= Intent(applicationContext, TimerServices::class.java)
         registerReceiver(updateTime, IntentFilter(TimerServices.TIMER_UPDATED))
+
+        val cronometroTimer = findViewById<TextView>(R.id.cronometroTimer)
+        val pointButton = findViewById<Button>(R.id.Point_button)
+        val listaPoints = findViewById<EditText>(R.id.ListaPoints)
+
+        pointButton.setOnClickListener {
+            addCurrentTimeToPointsList(cronometroTimer, listaPoints)
+        }
     }
 
     private fun restartTimer() {
         stopTimer()
         time = 0.0
         binding.cronometroTimer.text = getTimeStringFromDouble(time)
+        clearPointsList()
     }
 
     private fun startStopTimer() {
@@ -81,4 +93,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun makeTimeString(hora: Int, min: Int, sec: Int): String = String.format("%02d:%02d:%02d", hora, min, sec)
+
+    private fun addCurrentTimeToPointsList(cronometroTimer: TextView, listaPoints: EditText) {
+        if (!timerStarted) return
+
+        val currentTime = cronometroTimer.text.toString()
+        val existingPoints = listaPoints.text.toString()
+        val newPoints = if (existingPoints.isEmpty()) {
+            currentTime
+        } else {
+            "$existingPoints\n$currentTime"
+        }
+        listaPoints.setText(newPoints)
+    }
+
+    private fun clearPointsList() {
+        val listaPoints = findViewById<EditText>(R.id.ListaPoints)
+        listaPoints.setText("")
+    }
 }
