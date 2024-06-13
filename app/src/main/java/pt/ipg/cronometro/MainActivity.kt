@@ -39,6 +39,15 @@ class MainActivity : AppCompatActivity() {
         val pointButton = findViewById<Button>(R.id.Point_button)
         val listaPoints = findViewById<EditText>(R.id.ListaPoints)
 
+        val timerButton: Button = findViewById(R.id.Timer_Button)
+        val cronometroButton: Button = findViewById(R.id.Cronometro_Button)
+        cronometroButton.isEnabled = false
+
+        timerButton.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+
         pointButton.setOnClickListener {
             addCurrentTimeToPointsList(cronometroTimer, listaPoints)
         }

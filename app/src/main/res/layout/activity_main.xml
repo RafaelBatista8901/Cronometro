@@ -78,12 +78,39 @@
     <EditText
         android:id="@+id/ListaPoints"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
+        android:layout_height="351dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:focusable="false"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:textColor="#DCDCDC"
         android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/Cronometro_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:width="100dp"
+            android:backgroundTint="#7A1A16"
+            android:text="Cronometro" />
+
+        <Button
+            android:id="@+id/Timer_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:width="100dp"
+            android:backgroundTint="#C61012"
+            android:text="Timer" />
+    </LinearLayout>
 
 </LinearLayout>
